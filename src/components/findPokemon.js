@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react'
+import { GetPokemon } from '../Helpers/GetPokemon';
 import { GetAbilities } from '../Helpers/GetAbilities';
 import GetMoves from '../Helpers/GetMoves';
-import { GetPokemon } from '../Helpers/GetPokemon';
 import { GetStats } from '../Helpers/GetStats';
 import { GetType } from '../Helpers/GetType';
 import MostrarHabilidad from './MostrarHabilidad';
 import MostrarMovimientos from './MostrarMovimientos';
 import MostrarStatus from './MostrarStatus';
 import MostrarTipos from './MostrarTipos';
-
+ 
 export const FindPokemon = ({ pokemon }) => {
    
     const [informacion, setInformacion] = useState([])
     const [Tipo, setTipo] = useState([])
     const [Status, setStatus] = useState([])
     const [Habilidades, setHabilidades] = useState([])
-    const [Movimientos, setMovimientos] = useState([])
+    const [Movimientos, setMovimientos] = useState([]) 
 
 
     
@@ -30,7 +30,7 @@ export const FindPokemon = ({ pokemon }) => {
             GetAbilities( pokemon )
             .then( setHabilidades)
             GetMoves( pokemon )
-            .then( setMovimientos)
+            .then( setMovimientos) 
     }, [pokemon]) 
 
     
@@ -38,7 +38,7 @@ export const FindPokemon = ({ pokemon }) => {
 
     const { nombre, imagen } = !!informacion && informacion;
 
-    console.log( nombre );
+
 
     return (     
       <>  
@@ -62,10 +62,10 @@ export const FindPokemon = ({ pokemon }) => {
                                             />         
                                     ) )
                                 }
-                            </div>
+                            </div> 
                     </div>
                     
-                    <div className = 'habilidades_y_stats animate__animated animate__fadeIn'> 
+                   <div className = 'habilidades_y_stats animate__animated animate__fadeIn'> 
                     
                     <div className = "stats contenedor query-block" >
                         <h3>Estadisticas</h3>
@@ -97,11 +97,11 @@ export const FindPokemon = ({ pokemon }) => {
                                     }
                             </ul>
                     </div>        
-                    </div>
+                    </div> 
             </section>
             
 
-                <section className='movimientos query-block'>
+                 <section className='movimientos query-block'>
                     <h3>Movimientos</h3>
                     <ul>                
                         {
@@ -115,7 +115,7 @@ export const FindPokemon = ({ pokemon }) => {
                         ) )
                         }
                     </ul>       
-                </section>
+                </section> 
             </div>
       
      </>
